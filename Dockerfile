@@ -3,6 +3,10 @@ FROM phusion/passenger-nodejs:0.9.11
 # UNCOMMENT FOR TESTING - DANGER!
 RUN /usr/sbin/enable_insecure_key
 
+# Setup python
+RUN /build/python.sh
+
+# Setup pip
 RUN curl -O https://bootstrap.pypa.io/get-pip.py
 RUN python get-pip.py
 
