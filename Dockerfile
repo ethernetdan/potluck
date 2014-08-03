@@ -3,13 +3,9 @@ FROM phusion/passenger-nodejs:0.9.11
 # UNCOMMENT FOR TESTING - DANGER!
 RUN /usr/sbin/enable_insecure_key
 
-# Setup python
-RUN curl -O http://mirrors.kernel.org/ubuntu/pool/main/p/python2.7/python2.7_2.7.6-8_amd64.deb
-RUN dpkg -i python2.7_2.7.6-8_amd64.deb
-
 # Setup pip
 RUN curl -O https://bootstrap.pypa.io/get-pip.py
-RUN python get-pip.py
+RUN python3 get-pip.py
 
 RUN pip install rethinkdb
 
