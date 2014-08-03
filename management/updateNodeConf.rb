@@ -3,8 +3,8 @@
 require 'rubygems'
 require 'rethinkdb'
 include RethinkDB::Shortcuts
-
-conn = r.connect(:host => 'localhost', :port => 28015, :db => 'management').repl
+ip = ENV['IP']
+conn = r.connect(:host => ip, :port => 28015, :db => 'management').repl
 
 r.table('nodes').changes().filter{|row| # catches only changes that add/delete nodes
 		(row['old_val'].eq(nil))# || row['new_val'].eq(nil))
