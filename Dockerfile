@@ -7,6 +7,6 @@ ENV HOME /root
 CMD ["/sbin/my_init"]
 
 RUN rm -f /etc/service/nginx/down
-ADD webapp.conf /etc/nginx/sites-enabled/webapp.conf
+ADD loadbalancer.conf /etc/nginx/sites-enabled/loadbalancer.conf
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
