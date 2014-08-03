@@ -9,7 +9,6 @@ CMD ["/sbin/my_init"]
 RUN rm -f /etc/service/nginx/down
 ADD loadbalancer.conf /etc/nginx/sites-enabled/loadbalancer.conf
 
-RUN mkdir -p /var/www/appid
-ADD app.js /var/www/appid/app.js
+ADD app.js /home/app/appid/app.js
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
