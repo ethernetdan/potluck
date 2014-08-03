@@ -3,7 +3,7 @@ FROM phusion/passenger-nodejs:0.9.11
 # UNCOMMENT FOR TESTING - DANGER!
 RUN /usr/sbin/enable_insecure_key
 
-RUN gem install --no-ri --no-rdoc rethinkdb
+RUN gem install rethinkdb
 
 # Set correct environment variables.
 ENV HOME /root
