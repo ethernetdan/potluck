@@ -10,7 +10,6 @@ include RethinkDB::Shortcuts
 
 # get public ip
 publicip = open('http://whatismyip.akamai.com').read
-ENV['IP'] = publicip
 
 # connect to cluster
 con = r.connect(:host => ENV['CENTRAL'])
