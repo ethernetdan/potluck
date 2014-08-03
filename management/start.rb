@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'rethinkdb'
 require 'open-uri'
 include RethinkDB::Shortcuts
@@ -9,9 +11,8 @@ include RethinkDB::Shortcuts
 # get public ip
 publicip = open('http://whatismyip.akamai.com').read
 
-
 # connect to cluster
-con = r.connect(:host => '23.236.55.43')
+con = r.connect(:host => ENV['CENTRAL']
 
 # setup management db
 mgmt = nil
@@ -41,5 +42,5 @@ end
 nodes.filter({:ip => publicip}).delete().run(con)
 mgmt.table('nodes').insert({
   :ip => publicip,
-  :repo => ENV['repo']
+  :repo => ENV['REPO']
 }).run(con)
