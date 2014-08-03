@@ -32,6 +32,6 @@ RUN chown -R 9999:9999 /home/app/PLACEHOLDERAPP
 RUN mkdir -p /etc/my_init.d
 ADD management/start.rb /etc/my_init.d/start.rb
 ADD management/updateNodeConf.rb /home/app/updateNodeConf.rb
-ADD management/startup.sh /etc/my_init.d/startup.sh
+ADD management/astartup.sh /etc/my_init.d/astartup.sh
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
