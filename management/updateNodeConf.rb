@@ -26,13 +26,13 @@ r.table('nodes').changes().filter{|row| # catches only changes that add/delete n
   		end
 	end
 
-        exec "git clone #{repo} /home/app/#{id}"
-        exec "git chown 9999:9999 -R /home/app/#{id}"
+        exec("git clone #{repo} /home/app/#{id}") if fork.nil?
+        exec("git chown 9999:9999 -R /home/app/#{id}") if fork.nil?
 
 	# edit config
         File.write('/etc/nginx/servers.conf', config)
 	# reload nginx
-	exec '/etc/init.d/nginx reload'
+        exec("/etc/init.d/nginx reload") if fork.nil?
 
 }
 
