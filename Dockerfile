@@ -16,6 +16,7 @@ RUN rm -f /etc/service/nginx/down
 RUN rm -f /etc/nginx/sites-enabled/default
 ADD nginx/app.conf /etc/nginx/sites-enabled/app.conf
 ADD nginx/servers.conf /etc/nginx/servers.conf
+ADD nginx/appid.conf /etc/nginx/appid.conf
 
 ADD node/app.js /home/app/appid/app.js
 RUN chown -R 9999:9999 /home/app/appid
