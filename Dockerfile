@@ -3,11 +3,7 @@ FROM phusion/passenger-nodejs:0.9.11
 # UNCOMMENT FOR TESTING - DANGER!
 RUN /usr/sbin/enable_insecure_key
 
-# Setup pip
-RUN curl -O https://bootstrap.pypa.io/get-pip.py
-RUN python3 get-pip.py
-
-RUN pip install rethinkdb
+gem install rethinkdb
 
 # Set correct environment variables.
 ENV HOME /root
