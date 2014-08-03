@@ -3,7 +3,6 @@
 require 'rubygems'
 require 'rethinkdb'
 include RethinkDB::Shortcuts
-ip = ENV['IP']
 conn = r.connect(:host => ENV['CENTRAL'], :port => 28015, :db => 'management').repl
 
 r.table('nodes').changes().filter{|row| # catches only changes that add/delete nodes
@@ -17,7 +16,7 @@ r.table('nodes').changes().filter{|row| # catches only changes that add/delete n
 	# /etc/nginx/sites-enabled/app.conf
 	config = ""
 
-	conf = File.open('/etc/nginx/sites-enabled/app.conf').read
+        conf = File.open('/etc/nginx/servers.conf').read
 	conf.each_line do |li|
 		config += li
   		if (li['upstream cluster {'])
@@ -27,7 +26,7 @@ r.table('nodes').changes().filter{|row| # catches only changes that add/delete n
 	end
 
 	# edit config
-	File.write('/etc/nginx/sites-enabled/app.conf', config)
+        File.write('/etc/nginx/servers.conf', config)
 	# reload nginx
 	exec '/etc/init.d/nginx reload'
 
