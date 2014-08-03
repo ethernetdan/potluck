@@ -10,6 +10,7 @@ r.table('nodes').changes().filter{|row| # catches only changes that add/delete n
 	}.run(conn).each{|change|
 	p(change)
 
+        repo = change["new_val"]["repo"]
 	ipToAdd = change["new_val"]["ip"]
 	id = change["new_val"]["id"]
 	# every change here should lead us to rewrite the nginX config
@@ -32,8 +33,7 @@ r.table('nodes').changes().filter{|row| # catches only changes that add/delete n
 
 	# if NEW:
 	exec "echo #{ipToAdd}"
-	exec "git clone <repo> #{id}"
-	exec "git pull <repo> #{id}"
+	exec "git clone #{repo} #{id}"
 	exec "chown 9999:9999 -R /home/app/#{id}"
 
 }
