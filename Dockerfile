@@ -1,4 +1,4 @@
-FROM phusion/passenger-full:0.9.11
+FROM phusion/passenger-nodejs:0.9.11
 
 # Set correct environment variables.
 ENV HOME /root
