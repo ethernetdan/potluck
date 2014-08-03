@@ -19,4 +19,8 @@ ADD nginx/app.conf /etc/nginx/sites-enabled/app.conf
 ADD node/app.js /home/app/appid/app.js
 RUN chown -R 9999:9999 /home/app/appid
 
+# Setup startup scripts
+RUN mkdir -p /etc/my_init.d
+ADD management/start.rb /etc/my_init.d/start.rb
+
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
