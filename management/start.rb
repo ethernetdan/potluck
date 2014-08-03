@@ -12,7 +12,7 @@ include RethinkDB::Shortcuts
 publicip = open('http://whatismyip.akamai.com').read
 
 # connect to cluster
-con = r.connect(:host => ENV['CENTRAL']
+con = r.connect(:host => ENV['CENTRAL'])
 
 # setup management db
 mgmt = nil
