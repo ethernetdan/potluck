@@ -45,4 +45,4 @@ result = mgmt.table('nodes').insert({
   :repo => ENV['REPO']
 }).run(con)
 
-File.open('/etc/nginx/appid.conf', 'w') { |file| file.write('set $app ' + result[:generated_keys][0]) + ';'}
+File.open('/Users/ApigeeCorporation/hi', 'w') { |file| file.write('set $app #{result["generated_keys"][0]};')}
