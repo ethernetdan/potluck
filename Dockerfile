@@ -3,7 +3,14 @@ FROM phusion/passenger-nodejs:0.9.11
 # UNCOMMENT FOR TESTING - DANGER!
 RUN /usr/sbin/enable_insecure_key
 
+# setup rethinkdb client
 RUN gem install rethinkdb
+
+# install required node packages
+RUN npm install -g path
+RUN npm install -g http
+RUN npm install -g rethinkdb
+
 
 # Set correct environment variables.
 ENV HOME /root
@@ -18,8 +25,8 @@ ADD nginx/app.conf /etc/nginx/sites-enabled/app.conf
 ADD nginx/servers.conf /etc/nginx/servers.conf
 ADD nginx/appid.conf /etc/nginx/appid.conf
 
-ADD node/app.js /home/app/appid/app.js
-RUN chown -R 9999:9999 /home/app/appid
+ADD node/app.js /home/app/PLACEHOLDERAPP/app.js
+RUN chown -R 9999:9999 /home/app/PLACEHOLDERAPP
 
 # Setup startup scripts
 RUN mkdir -p /etc/my_init.d
