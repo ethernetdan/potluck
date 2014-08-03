@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-ruby ./updateNodeConf.rb &
+ruby /home/app/updateNodeConf.rb &
