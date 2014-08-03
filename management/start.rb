@@ -40,7 +40,9 @@ end
 
 # add node to db
 nodes.filter({:ip => publicip}).delete().run(con)
-mgmt.table('nodes').insert({
+result = mgmt.table('nodes').insert({
   :ip => publicip,
   :repo => ENV['REPO']
 }).run(con)
+
+File.open('/etc/nginx/appid.conf', 'w') { |file| file.write('set $app ' + result[:generated_keys][0]) + ';'}
