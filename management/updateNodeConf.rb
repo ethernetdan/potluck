@@ -47,8 +47,8 @@ r.table('nodes').changes().filter{|row| # catches only changes that add/delete n
 
 		# if NEW:
 		exec "echo #{ipToAdd}"
-		exec "git clone <repo> #{idToAdd}"
-		exec "git pull <repo> #{idToAdd}"
+		exec "git clone <repo> /home/app/#{idToAdd}"
+                exec "mkdir /home/app/#{idToAdd}/public"
 		exec "chown 9999:9999 -R /home/app/#{idToAdd}"
 	end
 }
