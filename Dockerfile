@@ -37,9 +37,9 @@ ADD nginx/appid.conf /etc/nginx/appid.conf
 
 # Setup startup scripts
 RUN mkdir -p /etc/my_init.d
-ADD management/start.rb /etc/my_init.d/start.rb
-ADD management/updateNodeConf.rb /home/app/updateNodeConf.rb
-ADD management/astartup.sh /etc/my_init.d/astartup.sh
+ADD management/appSpawner.rb /etc/my_init.d/appSpawner.rb
+ADD management/initialize.rb /etc/my_init.d/initialize.rb
+ADD management/bootloader.sh /etc/my_init.d/bootloader.sh
 
 # Clean up after installation
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
