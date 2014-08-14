@@ -22,3 +22,5 @@ Up ahead is smarter load balancing, actually distributed databases, more secure 
 Note: This is completely a work in progress and only the truly unwise would use it for anything worthwhile.
 
 (more to come here)
+
+![Potluck Diagram](http://i.imgur.com/tkV90ZW.png)
